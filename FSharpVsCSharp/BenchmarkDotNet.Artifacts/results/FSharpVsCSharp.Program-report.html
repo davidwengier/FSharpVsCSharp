@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Program</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.12, OS=Windows 10 Redstone 3 [1709, Fall Creators Update] (10.0.16299.248)
+Intel Core i7-6600U CPU 2.60GHz (Skylake), 1 CPU, 4 logical cores and 2 physical cores
+Frequency=2742191 Hz, Resolution=364.6719 ns, Timer=TSC
+.NET Core SDK=2.2.0-preview1-007622
+  [Host]     : .NET Core 2.0.5 (Framework 4.6.26020.03), 64bit RyuJIT
+  DefaultJob : .NET Core 2.0.5 (Framework 4.6.26020.03), 64bit RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Max</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>DoFSharp</td><td>10</td><td>1.494 us</td><td>0.0560 us</td><td>0.1606 us</td><td>1.429 us</td><td>0.7496</td><td>-</td><td>-</td><td>1.54 KB</td>
+</tr><tr><td>DoCSharp</td><td>10</td><td>1.164 us</td><td>0.0270 us</td><td>0.0696 us</td><td>1.138 us</td><td>0.5245</td><td>-</td><td>-</td><td>1.08 KB</td>
+</tr><tr><td>DoFSharp</td><td>100</td><td>12.796 us</td><td>0.2293 us</td><td>0.2145 us</td><td>12.783 us</td><td>7.1716</td><td>-</td><td>-</td><td>14.71 KB</td>
+</tr><tr><td>DoCSharp</td><td>100</td><td>11.487 us</td><td>0.2281 us</td><td>0.2134 us</td><td>11.411 us</td><td>5.1270</td><td>-</td><td>-</td><td>10.51 KB</td>
+</tr><tr><td>DoFSharp</td><td>1000</td><td>140.903 us</td><td>2.4491 us</td><td>2.4053 us</td><td>141.002 us</td><td>75.9277</td><td>0.2441</td><td>-</td><td>155.93 KB</td>
+</tr><tr><td>DoCSharp</td><td>1000</td><td>124.636 us</td><td>1.5742 us</td><td>1.4725 us</td><td>124.681 us</td><td>55.6641</td><td>-</td><td>-</td><td>114.29 KB</td>
+</tr><tr><td>DoFSharp</td><td>10000</td><td>1,843.656 us</td><td>32.1990 us</td><td>30.1189 us</td><td>1,850.531 us</td><td>263.6719</td><td>138.6719</td><td>27.3438</td><td>1646.74 KB</td>
+</tr><tr><td>DoCSharp</td><td>10000</td><td>1,671.483 us</td><td>28.2928 us</td><td>25.0808 us</td><td>1,664.843 us</td><td>285.1563</td><td>119.1406</td><td>27.3438</td><td>1230.77 KB</td>
+</tr></tbody></table>
+</body>
+</html>
